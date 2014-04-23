@@ -1,0 +1,15 @@
+Project Directory Structure
+===========================
+
+### data
+All raw and processed files used as inputs in order to generate results
+
+### doc
+Contains documentation of the project and the data and scripts contained within
+
+### results
+Results collected on different days run through different experiments. This
+directory contains presentable results
+
+### scripts
+Custom scripts associated with this project
