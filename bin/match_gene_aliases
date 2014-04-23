@@ -1,0 +1,45 @@
+#!/usr/bin/perl -w
+
+# Use this script in order to match old gene names to new gene names and just 
+# create a list of the same length (ideally) with the new gene names from the 
+# given gene aliases input file
+# use Global;
+use strict;
+use warnings;
+
+die("Usage: match_gene_aliases <old_gene_list.txt> <gene_aliases_list.txt> <updated_gene_list.output>\n") if (@ARGV < 3 && -t STDIN);
+
+# save the gene aliases to an array variable and close the file handle
+open(GENE_ALIASES, "<$ARGV[1]") || die("Can't open gene aliases file (second input)");
+my @ALIASES = <GENE_ALIASES>;
+close(GENE_ALIASES);
+
+# open file handle to old gene list file and output file; then split each gene alias
+# line into separate strings and match old gene list to array values for each line of
+# gene aliases and if there is a string match print the first value of that line to the output file
+open(OLD_GENES, $ARGV[0]);
+open(OUTPUT, ">$ARGV[2]");
+while(<OLD_GENES>)
+{
+	$_ =~ s/\n//; # get rid of newline character
+	my $old_gene_id = $_;
+	#print $old_gene_id;
+	foreach my $gene_alias_line (@ALIASES) 
+	{
+		# print $gene_alias_line;
+		$gene_alias_line =~ s/\n//;
+		my @alias_split = split(/\t/, $gene_alias_line);
+		foreach my $gene_alias (@alias_split)
+		{
+			#print "Gene alias is $gene_alias\n";
+			#print "Old gene id is $old_gene_id\n";
+			if( $old_gene_id =~ /$gene_alias/ ) 
+			{
+				print OUTPUT "$alias_split[0]\n";
+			} # end if
+		} # end foreach
+	} # end foreach	
+} # end while
+close(OLD_GENES); close(OUTPUT);
+
+exit;

@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# halt in case of errors
+set -ue
+
+<<DESCRIPTION
+	A FIMO wrapper script
+
+	Dependencies: 
+	Author: http://methodicallyadventurous.com
+DESCRIPTION
+
+# load meme module
+module load meme
+
+# FUNCTIONS ###################################################################
+usage() {
+cat << EOF
+
+Usage: searchmotif -m <motif-file> -s <sequence-file> -t <threshold> -o <output-dir>
+
+WARNING: Will always overwrite output directory
+
+EOF
+exit 1
+}
+
+echoerr() {
+	ecoh "$@" 1>&2;
+}
+
+# display usage
+if [ $# -eq 0 ]; then
+	usage
+fi
+
+# ARGS ########################################################################
+while getopts "t:o:m:s:" OPTION; do
+	
+	case $OPTION in
+		t)
+			THRESHOLD=$OPTARG
+			;;
+		o)
+			OUTPUTDIR=$OPTARG
+			;;
+		m)
+			MOTIFFILE=$OPTARG
+			;;
+		s)
+			SEQUENCEFILE=$OPTARG
+			;;	
+		*)
+			usage
+			;;
+	esac
+done
+
+
+# RUN MAIN ####################################################################
+
+fimo --bgfile motif-file --thresh $THRESHOLD --oc $OUTPUTDIR --max-stored-scores 100000000 $MOTIFFILE $SEQUENCEFILE
+
+exit
