@@ -1,0 +1,440 @@
+********************************************************************************
+MEME - Motif discovery tool
+********************************************************************************
+MEME version 4.9.0 (Release date: Wed Oct  3 11:07:26 EST 2012)
+
+For further information on how to interpret these results or to get
+a copy of the MEME software please access http://meme.nbcr.net.
+
+This file may be used as input to the MAST algorithm for searching
+sequence databases for matches to groups of motifs.  MAST is available
+for interactive use and downloading at http://meme.nbcr.net.
+********************************************************************************
+
+
+********************************************************************************
+REFERENCE
+********************************************************************************
+If you use this program in your research, please cite:
+
+Timothy L. Bailey and Charles Elkan,
+"Fitting a mixture model by expectation maximization to discover
+motifs in biopolymers", Proceedings of the Second International
+Conference on Intelligent Systems for Molecular Biology, pp. 28-36,
+AAAI Press, Menlo Park, California, 1994.
+********************************************************************************
+
+
+********************************************************************************
+TRAINING SET
+********************************************************************************
+DATAFILE= /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt
+ALPHABET= ACGT
+Sequence name            Weight Length  Sequence name            Weight Length  
+-------------            ------ ------  -------------            ------ ------  
+PF3D7_0903700            1.0000    180  PF3D7_1352700            1.0000    180  
+PF3D7_0508900            1.0000    180  PF3D7_1412600            1.0000    138  
+PF3D7_1149000            1.0000    180  PF3D7_1247400            1.0000    180  
+PF3D7_0826100            1.0000    180  PF3D7_1038400            1.0000    180  
+PF3D7_0910700            1.0000    180  PF3D7_0909700            1.0000    180  
+PF3D7_0317700            1.0000    180  PF3D7_0811900            1.0000    180  
+PF3D7_1007700            1.0000    190  PF3D7_0819300            1.0000    180  
+PF3D7_0305500            1.0000    180  PF3D7_1240900            1.0000    180  
+PF3D7_0526600            1.0000    180  PF3D7_1035200            1.0000    180  
+PF3D7_1200600            1.0000    180  PF3D7_0630000            1.0000    180  
+PF3D7_1024800            1.0000    180  PF3D7_1150400            1.0000    180  
+PF3D7_1132000            1.0000    180  PF3D7_0303100            1.0000    180  
+PF3D7_0204900            1.0000    180  PF3D7_1229000            1.0000    180  
+PF3D7_0724900            1.0000    180  PF3D7_0504800            1.0000    180  
+PF3D7_0801300            1.0000    180  PF3D7_0207500            1.0000    180  
+PF3D7_0821100            1.0000    169  PF3D7_1014300            1.0000    180  
+PF3D7_1428000            1.0000    180  PF3D7_1030500            1.0000    180  
+PF3D7_1201700            1.0000    180  PF3D7_1318300            1.0000    180  
+PF3D7_0317100            1.0000    180  PF3D7_0612200            1.0000    180  
+PF3D7_1037500            1.0000    180  PF3D7_1113000            1.0000    180  
+PF3D7_1307400            1.0000    180  PF3D7_0900100            1.0000    180  
+PF3D7_1442600            1.0000    180  PF3D7_0804700            1.0000    180  
+PF3D7_1209300            1.0000    180  PF3D7_0723500            1.0000    180  
+PF3D7_0321100            1.0000    180  PF3D7_1240400            1.0000    180  
+PF3D7_0707200            1.0000    180  PF3D7_0627100            1.0000    180  
+PF3D7_1131100            1.0000    180  PF3D7_1432300            1.0000    180  
+PF3D7_1342200            1.0000    180  PF3D7_1432400            1.0000    160  
+PF3D7_0104300            1.0000    180  PF3D7_0533100            1.0000    180  
+PF3D7_1241200            1.0000    180  PF3D7_1100100            1.0000    180  
+********************************************************************************
+
+********************************************************************************
+COMMAND LINE SUMMARY
+********************************************************************************
+This information can also be useful in the event you wish to report a
+problem with the MEME software.
+
+command: meme /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt -oc /gpfs/biostar/l/Llinaslab/phil/projects/motif/results/meme_oops -dna -minw 7 -maxw 8 -mod oops 
+
+model:  mod=          oops    nmotifs=         1    evt=           inf
+object function=  E-value of product of p-values
+width:  minw=            7    maxw=            8    minic=        0.00
+width:  wg=             11    ws=              1    endgaps=       yes
+nsites: minsites=       58    maxsites=       58    wnsites=       0.8
+theta:  prob=            1    spmap=         uni    spfuzz=        0.5
+global: substring=     yes    branching=      no    wbranch=        no
+em:     prior=   dirichlet    b=            0.01    maxiter=        50
+        distance=    1e-05
+data:   n=           10377    N=              58
+strands: +
+sample: seed=            0    seqfrac=         1
+Letter frequencies in dataset:
+A 0.442 C 0.095 G 0.180 T 0.283 
+Background letter frequencies (from dataset with add-one prior applied):
+A 0.442 C 0.095 G 0.180 T 0.283 
+********************************************************************************
+
+
+********************************************************************************
+MOTIF  1	width =    8   sites =  58   llr = 363   E-value = 6.9e-009
+********************************************************************************
+--------------------------------------------------------------------------------
+	Motif 1 Description
+--------------------------------------------------------------------------------
+Simplified        A  2172:a4:
+pos.-specific     C  :12:::1:
+probability       G  :8:39::a
+matrix            T  8:151:5:
+
+         bits    3.4         
+                 3.1         
+                 2.7         
+                 2.4        *
+Relative         2.0     *  *
+Entropy          1.7     *  *
+(9.0 bits)       1.4  *  *  *
+                 1.0  *  ** *
+                 0.7 **  ** *
+                 0.3 ********
+                 0.0 --------
+
+Multilevel           TGATGATG
+consensus               G  A 
+sequence                A    
+                             
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 sites sorted by position p-value
+--------------------------------------------------------------------------------
+Sequence name             Start   P-value              Site
+-------------             ----- ---------            --------
+PF3D7_1241200                99  5.57e-06 ATTCAAATGC TGCTGATG ATGATGATCA
+PF3D7_1200600                20  5.57e-06 TCAGAAAAGG TGCTGATG ATTGTGATGA
+PF3D7_0900100                87  3.14e-05 AACCTGAAGA TGATGATG ACCAACAAGA
+PF3D7_1307400               104  3.14e-05 ACGATTCCAT TGATGATG TAGAAAATAT
+PF3D7_0317100                61  3.14e-05 ATATCACATA TGATGATG ATGTTTGGCA
+PF3D7_1014300                16  3.14e-05 ATGATGACGA TGATGATG AAGAAGAAGA
+PF3D7_1149000               164  3.14e-05 CATCATTTGT TGATGATG AGTCCTTTA 
+PF3D7_0630000               108  4.55e-05 AAGATGAGGA TGATGACG AAGATGATCA
+PF3D7_1240400               102  6.19e-05 TTGAAGAGGG TGAGGATG ACGAGGTCTA
+PF3D7_1412600                90  6.87e-05 GAGACAATAT TGAGGACG CGAAAGCATC
+PF3D7_1432400                63  1.18e-04 TCCATCCAGA TGATGAAG ACGGACATGA
+PF3D7_0627100               105  1.18e-04 ATGGAAAAGT TGATGAAG ACAAAAATCA
+PF3D7_0707200                77  1.18e-04 ATAGAAACCG TGATGAAG ATGATTAAAG
+PF3D7_0804700                17  1.18e-04 ATCATTATTA TGATGAAG ATAATATAAT
+PF3D7_1132000                85  1.18e-04 CACACAGTTC TGATGAAG GTGAAGAGGA
+PF3D7_1035200                68  1.18e-04 AATCCAATAA TGATGAAG AAAATGAACT
+PF3D7_0305500                78  1.18e-04 ATATGGAACA TGATGAAG ATAATTTAGA
+PF3D7_0826100                60  1.18e-04 GAAATGAAAT TGATGAAG ACCAGATATA
+PF3D7_1247400               160  1.18e-04 ATGGTTATGG TGATGAAG GATGTGGAGA
+PF3D7_0612200                39  1.52e-04 TAAATTACGT TGAGGAAG AGAATTATAG
+PF3D7_0303100                29  1.52e-04 CTTTTCAAAA TGAGGAAG AAAAAGAAAA
+PF3D7_1038400                73  1.52e-04 AAAAGGTTGT TGAGGAAG AAATTCTAGA
+PF3D7_1201700                99  1.82e-04 AAATGAATAG TGCAGATG AGAAGAATAA
+PF3D7_0723500                85  2.31e-04 CTCAAAATAT TCAGGATG CCCTTCGAAG
+PF3D7_1024800                81  2.31e-04 AAGAAAGAAA TGAAGATG AGTATAGAGA
+PF3D7_0909700                67  2.31e-04 CCTTAAATAT TGAAGATG AAGTATGTAG
+PF3D7_0321100                47  2.34e-04 TAGAAAATTG TGCAGACG AACAACATTG
+PF3D7_0910700               146  2.67e-04 TATTTTATAA TGAAGACG TGAAAGAAAA
+PF3D7_0533100               130  2.72e-04 AAGGAATAAT TCCTGAAG ATTTTATACG
+PF3D7_0504800               164  3.20e-04 AATTAAATGA TGTGGATG ATATTGTGA 
+PF3D7_0317700               102  3.85e-04 ACAAACAAGA CGATGATG ATAAAATTAA
+PF3D7_0903700               170  3.85e-04 ATATGATATA TGCAGAAG AAA       
+PF3D7_1131100               114  4.69e-04 ATAGTATTAA TGAAGAAG AAGAGGAATA
+PF3D7_1318300                39  5.49e-04 GAAATAATGA AGAGGATG AAAAAATAAT
+PF3D7_0801300                64  5.49e-04 TAACATTAGT TGTTGAAG AGTCAAGTTT
+PF3D7_0104300               119  5.91e-04 GCAATATGTA TGCTGATC AAAGTGTCAT
+PF3D7_0821100                88  7.57e-04 AAAATAAATC AGATGAAG TGATGCAATA
+PF3D7_0526600                41  8.27e-04 TTGAATTTTG TAATGATG TATATGAAGC
+PF3D7_1352700               145  8.66e-04 ATTTAGAAAA AGCGGAAG AAAGTACAAA
+PF3D7_1209300                95  1.03e-03 AAATTGGAGA TGATTATG GAATTAATAG
+PF3D7_1150400               103  1.03e-03 GAGGGGAAAA TAATGACG ATAAGACCCC
+PF3D7_1240900                28  1.03e-03 CCCAAAATAG TCTGGATG CAGAGGAAAT
+PF3D7_1007700                19  1.03e-03 AAGAGCACCA CGAGGAAG AAGAATGGAG
+PF3D7_0811900                88  1.03e-03 ATGTGCCAAC TAATGACG ATAACAAAAA
+PF3D7_0204900                65  1.11e-03 ATTATGAATG ACATGATG AGTTTGCTGG
+PF3D7_1442600               114  1.29e-03 AAAACCAAGG TGAGTATG TTAAAGGTGA
+PF3D7_0819300                67  1.29e-03 TAAATGAAAA ACCGGATG AAATCTTCCC
+PF3D7_1037500                95  1.44e-03 AGAAAGATGT AGAAGATG ATATTACTAT
+PF3D7_1030500                11  1.57e-03 AAATAGATAT TAATGAAG TTGAAAAAAT
+PF3D7_1229000                99  1.57e-03 AAAATGTAAA AGCAGACG ATAATACAGT
+PF3D7_1100100                13  1.94e-03 AAGCAAATGG TCGTGATG GTAAAAAAAA
+PF3D7_1432300                43  1.99e-03 AAGAATATAA AGTGGATG CAGAATATAA
+PF3D7_0508900               173  2.12e-03 TTATGAGGGG GGATGAAG           
+PF3D7_0724900                 4  2.47e-03        TTT TAAAGATG TGAAGGTATA
+PF3D7_0207500                94  2.83e-03 AAGTCAAGGC ACAAGATG ATTTCAATCC
+PF3D7_1342200                14  2.97e-03 ATAAATATTT TCAGTACG TAGATAAAAA
+PF3D7_1113000               135  3.69e-03 GTGATTTATA TAAAGAAG AATGGACAGA
+PF3D7_1428000                81  1.07e-02 CCTCTTCTCT TGTTTATC TTATGTTGTC
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 block diagrams
+--------------------------------------------------------------------------------
+SEQUENCE NAME            POSITION P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+PF3D7_1241200                     5.6e-06  98_[+1]_74
+PF3D7_1200600                     5.6e-06  19_[+1]_153
+PF3D7_0900100                     3.1e-05  86_[+1]_86
+PF3D7_1307400                     3.1e-05  103_[+1]_69
+PF3D7_0317100                     3.1e-05  60_[+1]_112
+PF3D7_1014300                     3.1e-05  15_[+1]_157
+PF3D7_1149000                     3.1e-05  163_[+1]_9
+PF3D7_0630000                     4.6e-05  107_[+1]_65
+PF3D7_1240400                     6.2e-05  101_[+1]_71
+PF3D7_1412600                     6.9e-05  89_[+1]_41
+PF3D7_1432400                     0.00012  62_[+1]_90
+PF3D7_0627100                     0.00012  104_[+1]_68
+PF3D7_0707200                     0.00012  76_[+1]_96
+PF3D7_0804700                     0.00012  16_[+1]_156
+PF3D7_1132000                     0.00012  84_[+1]_88
+PF3D7_1035200                     0.00012  67_[+1]_105
+PF3D7_0305500                     0.00012  77_[+1]_95
+PF3D7_0826100                     0.00012  59_[+1]_113
+PF3D7_1247400                     0.00012  159_[+1]_13
+PF3D7_0612200                     0.00015  38_[+1]_134
+PF3D7_0303100                     0.00015  28_[+1]_144
+PF3D7_1038400                     0.00015  72_[+1]_100
+PF3D7_1201700                     0.00018  98_[+1]_74
+PF3D7_0723500                     0.00023  84_[+1]_88
+PF3D7_1024800                     0.00023  80_[+1]_92
+PF3D7_0909700                     0.00023  66_[+1]_106
+PF3D7_0321100                     0.00023  46_[+1]_126
+PF3D7_0910700                     0.00027  145_[+1]_27
+PF3D7_0533100                     0.00027  129_[+1]_43
+PF3D7_0504800                     0.00032  163_[+1]_9
+PF3D7_0317700                     0.00039  101_[+1]_71
+PF3D7_0903700                     0.00039  169_[+1]_3
+PF3D7_1131100                     0.00047  113_[+1]_59
+PF3D7_1318300                     0.00055  38_[+1]_134
+PF3D7_0801300                     0.00055  63_[+1]_109
+PF3D7_0104300                     0.00059  118_[+1]_54
+PF3D7_0821100                     0.00076  87_[+1]_74
+PF3D7_0526600                     0.00083  40_[+1]_132
+PF3D7_1352700                     0.00087  144_[+1]_28
+PF3D7_1209300                       0.001  94_[+1]_78
+PF3D7_1150400                       0.001  102_[+1]_70
+PF3D7_1240900                       0.001  27_[+1]_145
+PF3D7_1007700                       0.001  18_[+1]_164
+PF3D7_0811900                       0.001  87_[+1]_85
+PF3D7_0204900                      0.0011  64_[+1]_108
+PF3D7_1442600                      0.0013  113_[+1]_59
+PF3D7_0819300                      0.0013  66_[+1]_106
+PF3D7_1037500                      0.0014  94_[+1]_78
+PF3D7_1030500                      0.0016  10_[+1]_162
+PF3D7_1229000                      0.0016  98_[+1]_74
+PF3D7_1100100                      0.0019  12_[+1]_160
+PF3D7_1432300                       0.002  42_[+1]_130
+PF3D7_0508900                      0.0021  172_[+1]
+PF3D7_0724900                      0.0025  3_[+1]_169
+PF3D7_0207500                      0.0028  93_[+1]_79
+PF3D7_1342200                       0.003  13_[+1]_159
+PF3D7_1113000                      0.0037  134_[+1]_38
+PF3D7_1428000                       0.011  80_[+1]_92
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 in BLOCKS format
+--------------------------------------------------------------------------------
+BL   MOTIF 1 width=8 seqs=58
+PF3D7_1241200            (   99) TGCTGATG  1 
+PF3D7_1200600            (   20) TGCTGATG  1 
+PF3D7_0900100            (   87) TGATGATG  1 
+PF3D7_1307400            (  104) TGATGATG  1 
+PF3D7_0317100            (   61) TGATGATG  1 
+PF3D7_1014300            (   16) TGATGATG  1 
+PF3D7_1149000            (  164) TGATGATG  1 
+PF3D7_0630000            (  108) TGATGACG  1 
+PF3D7_1240400            (  102) TGAGGATG  1 
+PF3D7_1412600            (   90) TGAGGACG  1 
+PF3D7_1432400            (   63) TGATGAAG  1 
+PF3D7_0627100            (  105) TGATGAAG  1 
+PF3D7_0707200            (   77) TGATGAAG  1 
+PF3D7_0804700            (   17) TGATGAAG  1 
+PF3D7_1132000            (   85) TGATGAAG  1 
+PF3D7_1035200            (   68) TGATGAAG  1 
+PF3D7_0305500            (   78) TGATGAAG  1 
+PF3D7_0826100            (   60) TGATGAAG  1 
+PF3D7_1247400            (  160) TGATGAAG  1 
+PF3D7_0612200            (   39) TGAGGAAG  1 
+PF3D7_0303100            (   29) TGAGGAAG  1 
+PF3D7_1038400            (   73) TGAGGAAG  1 
+PF3D7_1201700            (   99) TGCAGATG  1 
+PF3D7_0723500            (   85) TCAGGATG  1 
+PF3D7_1024800            (   81) TGAAGATG  1 
+PF3D7_0909700            (   67) TGAAGATG  1 
+PF3D7_0321100            (   47) TGCAGACG  1 
+PF3D7_0910700            (  146) TGAAGACG  1 
+PF3D7_0533100            (  130) TCCTGAAG  1 
+PF3D7_0504800            (  164) TGTGGATG  1 
+PF3D7_0317700            (  102) CGATGATG  1 
+PF3D7_0903700            (  170) TGCAGAAG  1 
+PF3D7_1131100            (  114) TGAAGAAG  1 
+PF3D7_1318300            (   39) AGAGGATG  1 
+PF3D7_0801300            (   64) TGTTGAAG  1 
+PF3D7_0104300            (  119) TGCTGATC  1 
+PF3D7_0821100            (   88) AGATGAAG  1 
+PF3D7_0526600            (   41) TAATGATG  1 
+PF3D7_1352700            (  145) AGCGGAAG  1 
+PF3D7_1209300            (   95) TGATTATG  1 
+PF3D7_1150400            (  103) TAATGACG  1 
+PF3D7_1240900            (   28) TCTGGATG  1 
+PF3D7_1007700            (   19) CGAGGAAG  1 
+PF3D7_0811900            (   88) TAATGACG  1 
+PF3D7_0204900            (   65) ACATGATG  1 
+PF3D7_1442600            (  114) TGAGTATG  1 
+PF3D7_0819300            (   67) ACCGGATG  1 
+PF3D7_1037500            (   95) AGAAGATG  1 
+PF3D7_1030500            (   11) TAATGAAG  1 
+PF3D7_1229000            (   99) AGCAGACG  1 
+PF3D7_1100100            (   13) TCGTGATG  1 
+PF3D7_1432300            (   43) AGTGGATG  1 
+PF3D7_0508900            (  173) GGATGAAG  1 
+PF3D7_0724900            (    4) TAAAGATG  1 
+PF3D7_0207500            (   94) ACAAGATG  1 
+PF3D7_1342200            (   14) TCAGTACG  1 
+PF3D7_1113000            (  135) TAAAGAAG  1 
+PF3D7_1428000            (   81) TGTTTATC  1 
+//
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 position-specific scoring matrix
+--------------------------------------------------------------------------------
+log-odds matrix: alength= 4 w= 8 n= 9971 bayes= 7.41713 E= 6.9e-009 
+  -151   -147   -338    148 
+  -209     53    208  -1250 
+    71     86   -338   -172 
+  -109  -1250     52     92 
+ -1250  -1250    237   -204 
+   118  -1250  -1250  -1250 
+   -22     53  -1250     77 
+ -1250   -147    243  -1250 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 position-specific probability matrix
+--------------------------------------------------------------------------------
+letter-probability matrix: alength= 4 w= 8 nsites= 58 E= 6.9e-009 
+ 0.155172  0.034483  0.017241  0.793103 
+ 0.103448  0.137931  0.758621  0.000000 
+ 0.724138  0.172414  0.017241  0.086207 
+ 0.206897  0.000000  0.258621  0.534483 
+ 0.000000  0.000000  0.931034  0.068966 
+ 1.000000  0.000000  0.000000  0.000000 
+ 0.379310  0.137931  0.000000  0.482759 
+ 0.000000  0.034483  0.965517  0.000000 
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+	Motif 1 regular expression
+--------------------------------------------------------------------------------
+TGA[TGA]GA[TA]G
+--------------------------------------------------------------------------------
+
+
+
+
+Time  1.51 secs.
+
+********************************************************************************
+
+
+********************************************************************************
+SUMMARY OF MOTIFS
+********************************************************************************
+
+--------------------------------------------------------------------------------
+	Combined block diagrams: non-overlapping sites with p-value < 0.0001
+--------------------------------------------------------------------------------
+SEQUENCE NAME            COMBINED P-VALUE  MOTIF DIAGRAM
+-------------            ----------------  -------------
+PF3D7_0903700                    6.45e-02  180
+PF3D7_1352700                    1.39e-01  180
+PF3D7_0508900                    3.07e-01  180
+PF3D7_1412600                    8.95e-03  89_[+1(6.87e-05)]_41
+PF3D7_1149000                    5.42e-03  163_[+1(3.14e-05)]_9
+PF3D7_1247400                    2.02e-02  180
+PF3D7_0826100                    2.02e-02  180
+PF3D7_1038400                    2.59e-02  180
+PF3D7_0910700                    4.52e-02  180
+PF3D7_0909700                    3.91e-02  180
+PF3D7_0317700                    6.45e-02  180
+PF3D7_0811900                    1.63e-01  180
+PF3D7_1007700                    1.72e-01  190
+PF3D7_0819300                    2.01e-01  180
+PF3D7_0305500                    2.02e-02  180
+PF3D7_1240900                    1.63e-01  180
+PF3D7_0526600                    1.33e-01  180
+PF3D7_1035200                    2.02e-02  180
+PF3D7_1200600                    9.63e-04  19_[+1(5.57e-06)]_153
+PF3D7_0630000                    7.84e-03  107_[+1(4.55e-05)]_65
+PF3D7_1024800                    3.91e-02  180
+PF3D7_1150400                    1.63e-01  180
+PF3D7_1132000                    2.02e-02  180
+PF3D7_0303100                    2.59e-02  180
+PF3D7_0204900                    1.75e-01  180
+PF3D7_1229000                    2.37e-01  180
+PF3D7_0724900                    3.48e-01  180
+PF3D7_0504800                    5.38e-02  180
+PF3D7_0801300                    9.07e-02  180
+PF3D7_0207500                    3.88e-01  180
+PF3D7_0821100                    1.15e-01  169
+PF3D7_1014300                    5.42e-03  6_[+1(4.55e-05)]_1_[+1(3.14e-05)]_\
+    61_[+1(3.14e-05)]_88
+PF3D7_1428000                    8.44e-01  180
+PF3D7_1030500                    2.37e-01  180
+PF3D7_1201700                    3.09e-02  180
+PF3D7_1318300                    9.07e-02  180
+PF3D7_0317100                    5.42e-03  60_[+1(3.14e-05)]_112
+PF3D7_0612200                    2.59e-02  180
+PF3D7_1037500                    2.21e-01  180
+PF3D7_1113000                    4.73e-01  180
+PF3D7_1307400                    5.42e-03  67_[+1(4.55e-05)]_28_[+1(3.14e-05)]_\
+    69
+PF3D7_0900100                    5.42e-03  86_[+1(3.14e-05)]_86
+PF3D7_1442600                    2.01e-01  180
+PF3D7_0804700                    2.02e-02  180
+PF3D7_1209300                    1.63e-01  180
+PF3D7_0723500                    3.91e-02  180
+PF3D7_0321100                    3.97e-02  180
+PF3D7_1240400                    1.07e-02  101_[+1(6.19e-05)]_71
+PF3D7_0707200                    2.02e-02  180
+PF3D7_0627100                    2.02e-02  180
+PF3D7_1131100                    7.80e-02  180
+PF3D7_1432300                    2.91e-01  180
+PF3D7_1342200                    4.03e-01  180
+PF3D7_1432400                    1.78e-02  160
+PF3D7_0104300                    9.72e-02  180
+PF3D7_0533100                    4.60e-02  180
+PF3D7_1241200                    9.63e-04  98_[+1(5.57e-06)]_74
+PF3D7_1100100                    2.86e-01  180
+--------------------------------------------------------------------------------
+
+********************************************************************************
+
+
+********************************************************************************
+Stopped because nmotifs = 1 reached.
+********************************************************************************
+
+CPU: biostar.psu.edu
+
+********************************************************************************

@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+Description: Use this script to make sure there is an actual fold increase in the
+amount of motifs present in the so called enriched sequences versus the rest of the genome
+"""
+
 # import modules
 from __future__ import division
 

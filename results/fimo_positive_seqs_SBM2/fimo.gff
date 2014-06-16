@@ -1,0 +1,17 @@
+##gff-version 3
+PF3D7_0321100	fimo	nucleotide_motif	82	89	999.9847	+	.	Name=+PfSR1:SBM-2;pvalue=1.53e-05;qvalue=0.0485;sequence=AAGTTGAA
+PF3D7_0526600	fimo	nucleotide_motif	28	35	999.9847	+	.	Name=+PfSR1:SBM-2;pvalue=1.53e-05;qvalue=0.0485;sequence=AAGTTGAA
+PF3D7_0526600	fimo	nucleotide_motif	85	92	999.9695	+	.	Name=+PfSR1:SBM-2;pvalue=3.05e-05;qvalue=0.0485;sequence=TAGTTGAA
+PF3D7_0526600	fimo	nucleotide_motif	163	170	999.9847	+	.	Name=+PfSR1:SBM-2;pvalue=1.53e-05;qvalue=0.0485;sequence=AAGTTGAA
+PF3D7_0627100	fimo	nucleotide_motif	101	108	999.9542	+	.	Name=+PfSR1:SBM-2;pvalue=4.58e-05;qvalue=0.0661;sequence=AAGTTGAT
+PF3D7_0903700	fimo	nucleotide_motif	64	71	999.9084	-	.	Name=-PfSR1:SBM-2;pvalue=9.16e-05;qvalue=0.0909;sequence=CAGTTGAA
+PF3D7_0903700	fimo	nucleotide_motif	75	82	999.9695	+	.	Name=+PfSR1:SBM-2;pvalue=3.05e-05;qvalue=0.0485;sequence=TAGTTGAA
+PF3D7_1007700	fimo	nucleotide_motif	68	75	999.9084	+	.	Name=+PfSR1:SBM-2;pvalue=9.16e-05;qvalue=0.0909;sequence=CAGTTGAA
+PF3D7_1030500	fimo	nucleotide_motif	16	23	999.9847	+	.	Name=+PfSR1:SBM-2;pvalue=1.53e-05;qvalue=0.0485;sequence=AAGTTGAA
+PF3D7_1038400	fimo	nucleotide_motif	57	64	999.9695	+	.	Name=+PfSR1:SBM-2;pvalue=3.05e-05;qvalue=0.0485;sequence=TAGTTGAA
+PF3D7_1038400	fimo	nucleotide_motif	111	118	999.9695	+	.	Name=+PfSR1:SBM-2;pvalue=3.05e-05;qvalue=0.0485;sequence=TAGTTGAA
+PF3D7_1038400	fimo	nucleotide_motif	165	172	999.9695	+	.	Name=+PfSR1:SBM-2;pvalue=3.05e-05;qvalue=0.0485;sequence=TAGTTGAA
+PF3D7_1229000	fimo	nucleotide_motif	118	125	999.9084	+	.	Name=+PfSR1:SBM-2;pvalue=9.16e-05;qvalue=0.0909;sequence=GAGTTGAA
+PF3D7_1240400	fimo	nucleotide_motif	89	96	999.9847	+	.	Name=+PfSR1:SBM-2;pvalue=1.53e-05;qvalue=0.0485;sequence=AAGTTGAA
+PF3D7_1240900	fimo	nucleotide_motif	62	69	999.9084	+	.	Name=+PfSR1:SBM-2;pvalue=9.16e-05;qvalue=0.0909;sequence=ATGTTGAA
+PF3D7_1442600	fimo	nucleotide_motif	158	165	999.9084	-	.	Name=-PfSR1:SBM-2;pvalue=9.16e-05;qvalue=0.0909;sequence=ATGTTGAA

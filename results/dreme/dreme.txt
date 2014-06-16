@@ -1,0 +1,57 @@
+# DREME 4.9.0
+# command:   dreme -p /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt -n /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/BackgroundSequencesRicherUp.txt -oc /gpfs/biostar/l/Llinaslab/phil/projects/motif/results/dreme
+# host:      biostar.psu.edu
+# when:      Fri Jun 13 00:08:53 EDT 2014
+# positives: 58
+#      from: /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt (Mon Feb 24 12:03:22 EST 2014)
+# negatives: 557
+#      from: /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/BackgroundSequencesRicherUp.txt (Wed Feb 05 16:46:41 EST 2014)
+
+
+MEME version 4.9.0
+
+ALPHABET= ACGT
+
+strands: + -
+
+Background letter frequencies (from dataset):
+A 0.448 C 0.105 G 0.150 T 0.298
+
+MOTIF GAWGAWGA
+
+#             Word    RC Word        Pos        Neg    P-value    E-value
+# BEST    GAWGAWGA   TCWTCWTC         28         81   1.4e-008   1.6e-004
+#         GAAGATGA   TCATCTTC         12         20   8.4e-006   9.6e-002
+#         GATGATGA   TCATCATC         12         24   3.5e-005   4.0e-001
+#         GAAGAAGA   TCTTCTTC         11         31   8.7e-004   1.0e+001
+#         GATGAAGA   TCTTCATC          8         20   2.7e-003   3.1e+001
+
+letter-probability matrix: alength= 4 w= 8 nsites= 40 E= 1.6e-004
+0.000000 0.000000 1.000000 0.000000
+1.000000 0.000000 0.000000 0.000000
+0.575000 0.000000 0.000000 0.425000
+0.000000 0.000000 1.000000 0.000000
+1.000000 0.000000 0.000000 0.000000
+0.425000 0.000000 0.000000 0.575000
+0.000000 0.000000 1.000000 0.000000
+1.000000 0.000000 0.000000 0.000000
+
+
+MOTIF AGKTGAAG
+
+#             Word    RC Word        Pos        Neg    P-value    E-value
+# BEST    AGKTGAAG   CTTCAMCT          7          2   1.5e-006   1.6e-002
+#         AGTTGAAG   CTTCAACT          4          0   7.2e-005   8.1e-001
+#         AGGTGAAG   CTTCACCT          3          2   7.0e-003   7.8e+001
+
+letter-probability matrix: alength= 4 w= 8 nsites= 7 E= 1.6e-002
+1.000000 0.000000 0.000000 0.000000
+0.000000 0.000000 1.000000 0.000000
+0.000000 0.000000 0.428571 0.571429
+0.000000 0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000 0.000000
+1.000000 0.000000 0.000000 0.000000
+1.000000 0.000000 0.000000 0.000000
+0.000000 0.000000 1.000000 0.000000
+
+
