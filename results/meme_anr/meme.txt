@@ -28,7 +28,7 @@ AAAI Press, Menlo Park, California, 1994.
 ********************************************************************************
 TRAINING SET
 ********************************************************************************
-DATAFILE= /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt
+DATAFILE= /Users/philross/projects/pfsr1-motif/data/probes/PositiveSequences.txt
 ALPHABET= ACGT
 Sequence name            Weight Length  Sequence name            Weight Length  
 -------------            ------ ------  -------------            ------ ------  
@@ -69,7 +69,7 @@ COMMAND LINE SUMMARY
 This information can also be useful in the event you wish to report a
 problem with the MEME software.
 
-command: meme /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt -oc /gpfs/biostar/l/Llinaslab/phil/projects/motif/results/meme_anr -dna -minw 7 -maxw 8 -mod anr 
+command: meme /Users/philross/projects/pfsr1-motif/data/probes/PositiveSequences.txt -oc /Users/philross/projects/pfsr1-motif/results/meme_anr -dna -minw 7 -maxw 8 -mod anr 
 
 model:  mod=           anr    nmotifs=         1    evt=           inf
 object function=  E-value of product of p-values
@@ -310,7 +310,7 @@ TGA[TA]GA[TAG]G
 
 
 
-Time  5.50 secs.
+Time  3.38 secs.
 
 ********************************************************************************
 
@@ -395,6 +395,6 @@ PF3D7_1100100                    7.48e-01  180
 Stopped because nmotifs = 1 reached.
 ********************************************************************************
 
-CPU: biostar.psu.edu
+CPU: Phils-iMac.local
 
 ********************************************************************************

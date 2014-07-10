@@ -10,6 +10,7 @@ from __future__ import division
 
 import sys
 import argparse
+from pandas import *
 from src.fasta import read_fasta
 from src.file_len import file_len
 from src.seq_len import seq_len

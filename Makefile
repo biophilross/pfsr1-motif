@@ -2,140 +2,173 @@
 
 # VARIABLES #################################################################
 
+# Parameters
+bgseqs               ?= 100
+fimothresh           ?= 0.0001
+std                  ?= 3
 # Directories
 WORKDIR              := $(CURDIR)
 PF3D7                := $(WORKDIR)/data/pf3d7
 MOTIFS               := $(WORKDIR)/data/motifs
 PROBES               := $(WORKDIR)/data/probes
+FIMO                 := $(WORKDIR)/data/fimo-$(fimothresh)-$(std)
 RESULTS              := $(WORKDIR)/results
 BIN                  := $(WORKDIR)/bin
-# Sequence files
-GENOME 							 := $(PF3D7)/genome.fasta
-ANNOTATEDTRANSCRIPTS := $(PF3D7)/annotated_transcripts.fasta
 # Annotation files
-FULLGFF							 := $(PF3D7)/
+GFFWITHFASTA         := $(PF3D7)/plasmodb.gff
+GFF                  := $(PF3D7)/pf3d7v11.0.gff
+GENES                := $(PF3D7)/genes.gff
+EXONS                := $(PF3D7)/exons.gff
+MRNAS                := $(PF3D7)/mrnas.gff
+INTRONS              := $(PF3D7)/introns.bed
+INTERGENIC           := $(PF3D7)/intergenic.bed
+# Sequence files
+GENOME               := $(PF3D7)/genome.fasta
+GENOMEIDX            := $(PF3D7)/genome.fasta.fai
+BEDGENOME            := $(PF3D7)/chromosome_lengths.genome
+TRANSCRIPTS          := $(PF3D7)/transcripts.fasta
 # Text files
-ALIASES							 := $(PF3D7)/aliases.txt
-# Inputs
-fimo_threshold       := 1e-4 # using 1e-5 returns 0 hits...1e-4 returns the highest fold increase
-std_val              := 3 # number of standard deviations to look for outliers in
+ALIASES              := $(PF3D7)/aliases.txt
+SANITYCHECK          := $(RESULTS)/sanity_check.txt-$(fimothresh)
+# Probe files
+POSSEQS              := $(PROBES)/PositiveSequences.txt
+BGBED                := $(PROBES)/bgseqs.bed
+BGSEQS               := $(PROBES)/bgseqs.fasta
+# Motif files
+SBM1                 := $(MOTIFS)/SBM1.meme
+SBM2                 := $(MOTIFS)/SBM2.meme
+# Fimo output
+FPSBM1               := $(FIMO)/positive_seqs_SBM1
+FPSBM2               := $(FIMO)/positive_seqs_SBM2
+FTSBM1               := $(FIMO)/transcripts_SBM1
+FTSBM2               := $(FIMO)/transcripts_SBM2
+NORMSBM1             := $(FIMO)/SBM1_norm_hits.txt
+NORMSBM2             := $(FIMO)/SBM2_norm_hits.txt
+OUTLIERSSBM1         := $(FIMO)/SBM1_outliers.txt
+OUTLIERSSBM2         := $(FIMO)/SBM2_outliers.txt
+GENOMESBM1           := $(FIMO)/genome_SBM1
+GENOMESBM2           := $(FIMO)/genome_SBM2
 
 # HELP ########################################################################
 
 help:
-	@echo ''
-	@echo 'Makefile for Motif Analysis Workflow'
-	@echo ''
-	@echo 'Usage:'
-	@echo '   make all               run entire workflow with default paramters & inputs'
-	@echo '   make get-data          downloads relevant data sets'
-	@echo '   make create-inputs     format data to be used as inputs'
-	@echo ''
+	@echo ""
+	@echo "Makefile for Motif Analysis Workflow"
+	@echo ""
+	@echo "Run 'make get-data' prior to running make all to download relevant data sets"
+	@echo ""
+	@echo "USAGE:"
+	@echo "   make all                  run entire workflow with default paramters & inputs"
+	@echo "   make get-data             downloads relevant data sets"
+	@echo "   make edit-data            format and clean data"
+	@echo "   make run-fimo             run fimo on transcripts and genome"
+	@echo "   make sanity-check         run sanity check"
+	@echo "   make get-outliers         find statistically significant genes"
+	@echo "   make discover-motifs      reccapitulate motifs"
+	@echo "   make help                 print this message"
+	@echo ""
+	@echo "PARAMETERS:"
+	@echo "   bgseqs                    number of background sequences (100)"
+	@echo "   fimothresh                fimo motif search threshold (0.0001)"
+	@echo "   std                       number of standard deviations to use (3)"
+	@echo ""
 
 # ALL #########################################################################
 
-all: get-data create-inputs sanity-check find-outliers get-outliers discover-motifs
+all: edit-data run-fimo sanity-check get-outliers discover-motifs
 
 # GET-DATA ####################################################################
 
 # DOWNLOAD PF3D7 DATA
-get-data: annotated_transcripts.fasta genome.fasta gene_aliases.txt
+get-data: get-gff get-genome get-transcripts get-aliases
 
-annotated_transcripts.fasta:
-	wget --quiet -O $(PF3D7)/$@ http://plasmodb.org/common/downloads/release-11.0/Pfalciparum3D7/fasta/data/PlasmoDB-11.0_Pfalciparum3D7_AnnotatedTranscripts.fasta
+get-gff:
+	wget http://plasmodb.org/common/downloads/release-11.0/Pfalciparum3D7/gff/data/PlasmoDB-11.0_Pfalciparum3D7.gff -O $(GFFWITHFASTA)
 
-genome.fasta:
-	wget --quiet -O $(PF3D7)/$@ http://plasmodb.org/common/downloads/release-11.0/Pfalciparum3D7/fasta/data/PlasmoDB-11.0_Pfalciparum3D7_Genome.fasta
+get-genome:
+	wget http://plasmodb.org/common/downloads/release-11.0/Pfalciparum3D7/fasta/data/PlasmoDB-11.0_Pfalciparum3D7_Genome.fasta -O $(GENOME)
 
-gene_aliases.txt:
-	wget --quiet -O $(PF3D7)/$@ http://plasmodb.org/common/downloads/release-11.0/Pfalciparum3D7/txt/PlasmoDB-11.0_Pfalciparum3D7_GeneAliases.txt 
+get-transcripts:
+	wget http://plasmodb.org/common/downloads/release-11.0/Pfalciparum3D7/fasta/data/PlasmoDB-11.0_Pfalciparum3D7_AnnotatedTranscripts.fasta -O $(TRANSCRIPTS)
 
-background-sequences:
-	bedtools random -l 180 -n 100 -seed 113
+get-aliases:
+	wget http://plasmodb.org/common/downloads/release-11.0/Pfalciparum3D7/txt/PlasmoDB-11.0_Pfalciparum3D7_GeneAliases.txt -O $(ALIASES)
 
 
 # FORMAT-DATA #################################################################
-create-inputs: transcript_lengths.txt transcript_products.txt transcript_locations.txt
+edit-data: make-gff make-genome make-annotations make-bgseqs
 
-# Extract different fields from annotated transcripts file
-transcript_lengths.txt: annotated_transcripts.fasta
-	python $(BIN)/at_extract.py -i $(PF3D7)/$^ -f length | sort -k1 > $(PF3D7)/$@
-transcript_products.txt: annotated_transcripts.fasta
-	python $(BIN)/at_extract.py -i $(PF3D7)/$^ -f product | sort -k1 > $(PF3D7)/$@
-transcript_locations.txt: annotated_transcripts.fasta
-	python $(BIN)/at_extract.py -i $(PF3D7)/$^ -f location | sort -k1 > $(PF3D7)/$@ 
+# Format annotation files
+make-gff:
+	$(BIN)/strip-fasta-from-gff -i $(GFFWITHFASTA) -o $(GFF)
+
+make-genome:
+	samtools faidx $(GENOME)
+	cut -f1,2 $(GENOMEIDX) > $(BEDGENOME)
+
+make-annotations:
+	cat $(GFF) | awk '$$3 ~ /exon/ || NR ==1 {print $$0}' > $(EXONS)
+	cat $(GFF) | awk '$$3 ~ /gene/ || NR ==1 {print $$0}' > $(GENES)
+	cat $(GFF) | awk '$$3 ~ /mRNA/ || NR ==1 {print $$0}' > $(MRNAS)
+	bedtools complement -i $(EXONS) -g $(BEDGENOME) | bedtools intersect -a - -b $(GENES) > $(INTRONS)
+	bedtools complement -i $(EXONS) -g $(BEDGENOME) | bedtools intersect -a - -b $(GENES) -v > $(INTERGENIC)
+
+# Create background sequences for dreme motif recapitulation
+make-bgseqs:
+	bedtools random -l 180 -n $(bgseqs) -seed 113 -g $(BEDGENOME) > $(BGBED)
+	bedtools getfasta -fi $(GENOME) -bed $(BGBED) -fo $(BGSEQS)
+
+# RUN-FIMO ####################################################################
+run-fimo: make-directories transcript-wide genome-wide
+
+make-directories:
+	@if [ ! -d $(FIMO) ]; then mkdir $(FIMO); fi
+
+transcript-wide:
+	bash $(BIN)/run-fimo.sh -m $(SBM1) -s $(POSSEQS) -t $(fimothresh) -o $(FPSBM1)
+	bash $(BIN)/run-fimo.sh -m $(SBM1) -s $(TRANSCRIPTS) -t $(fimothresh) -o $(FTSBM1)
+	bash $(BIN)/run-fimo.sh -m $(SBM2) -s $(POSSEQS) -t $(fimothresh) -o $(FPSBM2)
+	bash $(BIN)/run-fimo.sh -m $(SBM2) -s $(TRANSCRIPTS) -t $(fimothresh) -o $(FTSBM2)
+
+genome-wide:
+	bash $(BIN)/run-fimo.sh -m $(SBM1) -s $(GENOME) -t 1e-3 -o $(GENOMESBM1)
+	bash $(BIN)/run-fimo.sh -m $(SBM2) -s $(GENOME) -t 1e-3 -o $(GENOMESBM2)
 
 
 # SANITY-CHECK ################################################################
-sanity-check: fimo_positive_seqs_SBM1 fimo_positive_seqs_SBM2 fimo_all_transcripts_SBM1 fimo_all_transcripts_SBM2 sanity_check.txt
+sanity-check: compare-output
 
-fimo_positive_seqs_SBM1: $(MOTIFS)/SBM1.meme
-	bash $(BIN)/searchmotif -m $^ -s $(PROBES)/PositiveSequences.txt -t $(fimo_threshold) -o $(RESULTS)/$@	
-
-fimo_all_transcripts_SBM1: $(MOTIFS)/SBM1.meme
-	bash $(BIN)/searchmotif -m $^ -s $(PF3D7)/annotated_transcripts.fasta -t $(fimo_threshold) -o $(RESULTS)/$@	
-
-fimo_positive_seqs_SBM2: $(MOTIFS)/SBM2.meme
-	bash $(BIN)/searchmotif -m $^ -s $(PROBES)/PositiveSequences.txt -t $(fimo_threshold) -o $(RESULTS)/$@	
-
-fimo_all_transcripts_SBM2: $(MOTIFS)/SBM2.meme
-	bash $(BIN)/searchmotif -m $^ -s $(PF3D7)/annotated_transcripts.fasta -t $(fimo_threshold) -o $(RESULTS)/$@	
-
-sanity_check.txt:
-	python $(BIN)/sanity_check.py -p1 $(RESULTS)/fimo_positive_seqs_SBM1/fimo.txt -p2 $(RESULTS)/fimo_positive_seqs_SBM2/fimo.txt -t1 $(RESULTS)/fimo_all_transcripts_SBM1/fimo.txt -t2 $(RESULTS)/fimo_all_transcripts_SBM2/fimo.txt -p $(PROBES)/PositiveSequences.txt -t $(PF3D7)/annotated_transcripts.fasta > $(RESULTS)/$@
+compare-output:
+	python $(BIN)/sanity_check.py -p1 "$(FPSBM1)/fimo.gff" -p2 "$(FPSBM2)/fimo.gff" -t1 "$(FTSBM1)/fimo.gff" -t2 "$(FTSBM2)/fimo.gff" -p $(POSSEQS) -t $(TRANSCRIPTS) > $(SANITYCHECK)
 
 
 # OUTLIERS ####################################################################
-find-outliers: SBM1_gene_hits.txt SBM2_gene_hits.txt SBM1_hits_len_prod.txt SBM2_hits_len_prod.txt norm_hits_SBM1.txt norm_hits_SBM2.txt
+get-outliers: calc-normalized-hits calc-outliers
 
-SBM1_gene_hits.txt:
-	cat $(RESULTS)/fimo_all_transcripts_SBM1/fimo.txt | cut -f2 | sort | uniq -c | sort -gr | awk -f $(BIN)/print_gene_hits.awk > $(RESULTS)/fimo_all_transcripts_SBM1/$@
+calc-normalized-hits:
+	python $(BIN)/normalized_hits.py -f "$(FTSBM1)/fimo.gff" -t $(TRANSCRIPTS) > $(NORMSBM1)
+	python $(BIN)/normalized_hits.py -f "$(FTSBM2)/fimo.gff" -t $(TRANSCRIPTS) > $(NORMSBM2)
 
-SBM2_gene_hits.txt:
-	cat $(RESULTS)/fimo_all_transcripts_SBM2/fimo.txt | cut -f2 | sort | uniq -c | sort -gr | awk -f $(BIN)/print_gene_hits.awk > $(RESULTS)/fimo_all_transcripts_SBM2/$@
+calc-outliers:
+	python $(BIN)/get_outliers.py -i $(NORMSBM1) -s $(std) > $(OUTLIERSSBM1)
+	python $(BIN)/get_outliers.py -i $(NORMSBM2) -s $(std) > $(OUTLIERSSBM2)
 
-SBM2_hits_len_prod.txt: SBM2_gene_hits.txt transcript_lengths.txt transcript_products.txt
-	bash $(BIN)/join.sh $(RESULTS)/fimo_all_transcripts_SBM2/SBM2_gene_hits.txt $(PF3D7)/transcript_lengths.txt $(PF3D7)/transcript_products.txt $(RESULTS)/fimo_all_transcripts_SBM2/$@
-
-SBM1_hits_len_prod.txt: SBM1_gene_hits.txt transcript_lengths.txt transcript_products.txt
-	bash $(BIN)/join.sh $(RESULTS)/fimo_all_transcripts_SBM1/SBM1_gene_hits.txt $(PF3D7)/transcript_lengths.txt $(PF3D7)/transcript_products.txt $(RESULTS)/fimo_all_transcripts_SBM1/$@
-
-norm_hits_SBM1.txt: SBM1_hits_len_prod.txt 
-	python $(BIN)/calc_norm.py -i $(RESULTS)/fimo_all_transcripts_SBM1/$^ > $(RESULTS)/fimo_all_transcripts_SBM1/$@
-	
-norm_hits_SBM2.txt: SBM2_hits_len_prod.txt 
-	python $(BIN)/calc_norm.py -i $(RESULTS)/fimo_all_transcripts_SBM2/$^ > $(RESULTS)/fimo_all_transcripts_SBM2/$@
-
-
-# PRINT LIST OF STATISTICALLY SIGNIFICANT GENES 
-get-outliers: SBM1_outliers.csv SBM2_outliers.csv
-
-SBM1_outliers.csv: norm_hits_SBM1.txt
-	python $(BIN)/get_outliers.py -i $(RESULTS)/fimo_all_transcripts_SBM1/$^ -s $(std_val) > $(RESULTS)/fimo_all_transcripts_SBM1/$@
-
-SBM2_outliers.csv: norm_hits_SBM2.txt
-	python $(BIN)/get_outliers.py -i $(RESULTS)/fimo_all_transcripts_SBM2/$^ -s $(std_val) > $(RESULTS)/fimo_all_transcripts_SBM2/$@
-
-# RUN MEME TO RECAPITULATE MOTIFS
+# DISCOVER-MOTIFS ##############################################################
 discover-motifs: run-meme run-dreme
 
 run-meme:
-	meme $(PROBES)/PositiveSequences.txt -oc $(RESULTS)/meme_oops -dna -minw 7 -maxw 8 -mod oops
-	meme $(PROBES)/PositiveSequences.txt -oc $(RESULTS)/meme_anr -dna -minw 7 -maxw 8 -mod anr
+	meme $(POSSEQS) -oc $(RESULTS)/meme_oops -dna -minw 7 -maxw 8 -mod oops
+	meme $(POSSEQS) -oc $(RESULTS)/meme_anr -dna -minw 7 -maxw 8 -mod anr
 	
 run-dreme:
-	dreme -p $(PROBES)/PositiveSequences.txt -n $(PROBES)/BackgroundSequencesRicherUp.txt -oc $(RESULTS)/dreme
-
-# VIEW ########################################################################
+	dreme -p $(POSSEQS) -n $(BGSEQS) -oc $(RESULTS)/dreme -mink 7 -maxk 8
 
 
 # CLEAN #######################################################################
-clean: clean-pf3d7 clean-results
-
-clean-PF3D7:
+clean-pf3d7:
 	rm -rf $(PF3D7)/*
 
-clean-RESULTS:
+clean-results:
 	rm -rf $(RESULTS)/*
 
-.PHONY: all view clean help
+.PHONY: all help

@@ -158,7 +158,7 @@
 ]>
 <!-- Begin document body -->
 <MEME version="4.9.0" release="Wed Oct  3 11:07:26 EST 2012">
-<training_set datafile="/gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt" length="58">
+<training_set datafile="/Users/philross/projects/pfsr1-motif/data/probes/PositiveSequences.txt" length="58">
 <alphabet id="nucleotide" length="4">
 <letter id="letter_A" symbol="A"/>
 <letter id="letter_C" symbol="C"/>
@@ -250,8 +250,8 @@
 </letter_frequencies>
 </training_set>
 <model>
-<command_line>meme /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt -oc /gpfs/biostar/l/Llinaslab/phil/projects/motif/results/meme_anr -dna -minw 7 -maxw 8 -mod anr </command_line>
-<host>biostar.psu.edu</host>
+<command_line>meme /Users/philross/projects/pfsr1-motif/data/probes/PositiveSequences.txt -oc /Users/philross/projects/pfsr1-motif/results/meme_anr -dna -minw 7 -maxw 8 -mod anr </command_line>
+<host>Phils-iMac.local</host>
 <type>anr</type>
 <nmotifs>1</nmotifs>
 <evalue_threshold>inf</evalue_threshold>
@@ -289,7 +289,7 @@
 </background_frequencies>
 </model>
 <motifs>
-<motif id="motif_1" name="1" width="8" sites="50" ic="11.7" re="11.3" llr="391" e_value="2.8e-017" bayes_threshold="8.12456" elapsed_time="5.499164">
+<motif id="motif_1" name="1" width="8" sites="50" ic="11.7" re="11.3" llr="391" e_value="2.8e-017" bayes_threshold="8.12456" elapsed_time="3.382465">
 <scores>
 <alphabet_matrix>
 <alphabet_array>

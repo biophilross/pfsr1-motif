@@ -369,10 +369,9 @@
   </style>
 <script type="text/javascript">
       var pos_count = 58;
-      var neg_count = 557;
+      var neg_count = 100;
       var motif_seqs = [];
-      motif_seqs[1] = ["m01", "GAWGAWGA", "TCWTCWTC", 8, 40, 28, 81, 1.4e-008, 1.6e-004, 1.6e-004, [["GAAGATGA", 12, 20, 8.4e-006, 9.6e-002], ["GATGATGA", 12, 24, 3.5e-005, 4.0e-001], ["GAAGAAGA", 11, 31, 8.7e-004, 1.0e+001], ["GATGAAGA", 8, 20, 2.7e-003, 3.1e+001]]];
-      motif_seqs[2] = ["m02", "AGKTGAAG", "CTTCAMCT", 8, 7, 7, 2, 1.5e-006, 1.6e-002, 1.3e-001, [["AGTTGAAG", 4, 0, 7.2e-005, 8.1e-001], ["AGGTGAAG", 3, 2, 7.0e-003, 7.8e+001]]];
+      motif_seqs[1] = ["m01", "CWTCWTC", "GAWGAWG", 7, 53, 34, 16, 4.3e-008, 4.0e-004, 4.0e-004, [["CTTCATC", 14, 4, 2.1e-004, 1.9e+000], ["CATCATC", 12, 4, 1.2e-003, 1.1e+001], ["CATCTTC", 13, 5, 1.3e-003, 1.2e+001], ["CTTCTTC", 14, 6, 1.3e-003, 1.2e+001]]];
 
     
     /* START INCLUDED FILE "delay_draw.js" */
@@ -2896,40 +2895,26 @@ function trim (str) {
   </script>
 </head>
 <body onload="page_loaded()" onpageshow="page_shown(event)" onresize="update_scrollpad()">
-<form id="submit_form" method="post" action="http://biostar.psu.edu/meme/cgi-bin/meme_request.cgi" target="_blank">
+<form id="submit_form" method="post" action="http://Phils-iMac.local/meme/cgi-bin/meme_request.cgi" target="_blank">
 <!--+++++++++++++++START DATA+++++++++++++++-->
 <input type="hidden" name="version" value="MEME version 4.9.0">
 <input type="hidden" name="alphabet" id="alphabet" value="ACGT">
 <input type="hidden" name="strands" value="+ -">
 <input type="hidden" name="bgsrc" value="dataset">
-<input type="hidden" name="bgfreq" id="bgfreq" value="A 0.448 C 0.105 G 0.150 T 0.298">
+<input type="hidden" name="bgfreq" id="bgfreq" value="A 0.396 C 0.097 G 0.098 T 0.409">
 <input type="hidden" name="name" value="PositiveSequences">
-<input type="hidden" name="nmotifs" id="nmotifs" value="2">
+<input type="hidden" name="nmotifs" id="nmotifs" value="1">
 <!--data for motif 1-->
-<input type="hidden" id="motifblock1" name="motifname1" value="GAWGAWGA">
+<input type="hidden" id="motifblock1" name="motifname1" value="CWTCWTC">
 <input type="hidden" id="pspm1" name="pspm1" value="
-letter-probability matrix: alength= 4 w= 8 nsites= 40 E= 1.6e-004
-0.000000 0.000000 1.000000 0.000000
-1.000000 0.000000 0.000000 0.000000
-0.575000 0.000000 0.000000 0.425000
-0.000000 0.000000 1.000000 0.000000
-1.000000 0.000000 0.000000 0.000000
-0.425000 0.000000 0.000000 0.575000
-0.000000 0.000000 1.000000 0.000000
-1.000000 0.000000 0.000000 0.000000
-">
-<!--data for motif 2-->
-<input type="hidden" id="motifblock2" name="motifname2" value="AGKTGAAG">
-<input type="hidden" id="pspm2" name="pspm2" value="
-letter-probability matrix: alength= 4 w= 8 nsites= 7 E= 1.6e-002
-1.000000 0.000000 0.000000 0.000000
-0.000000 0.000000 1.000000 0.000000
-0.000000 0.000000 0.428571 0.571429
+letter-probability matrix: alength= 4 w= 7 nsites= 53 E= 4.0e-004
+0.000000 1.000000 0.000000 0.000000
+0.509434 0.000000 0.000000 0.490566
 0.000000 0.000000 0.000000 1.000000
-0.000000 0.000000 1.000000 0.000000
-1.000000 0.000000 0.000000 0.000000
-1.000000 0.000000 0.000000 0.000000
-0.000000 0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000 0.000000
+0.452830 0.000000 0.000000 0.547170
+0.000000 0.000000 0.000000 1.000000
+0.000000 1.000000 0.000000 0.000000
 ">
 <!--+++++++++++++++FINISHED DATA++++++++++++-->
 <input type="hidden" name="program" id="submit_program" value="TOMTOM"><input type="hidden" name="motif" id="submit_motif" value="all"><input type="hidden" name="logoformat" id="submit_format" value="png"><input type="hidden" name="logorc" id="submit_rc" value="false"><input type="hidden" name="logossc" id="submit_ssc" value="false"><input type="hidden" name="logowidth" id="submit_width" value=""><input type="hidden" name="logoheight" id="submit_height" value="7.5">
@@ -3111,7 +3096,7 @@ letter-probability matrix: alength= 4 w= 8 nsites= 7 E= 1.6e-002
 <td>
 <span class="positives"></span>/58</td>
 <td>
-<span class="negatives"></span>/557</td>
+<span class="negatives"></span>/100</td>
 <td class="pvalue"></td>
 <td class="evalue"></td>
 <td class="uevalue"></td>
@@ -3146,7 +3131,7 @@ letter-probability matrix: alength= 4 w= 8 nsites= 7 E= 1.6e-002
 <td>
 <span class="positives"></span>/58</td>
 <td>
-<span class="negatives"></span>/557</td>
+<span class="negatives"></span>/100</td>
 <td class="pvalue"></td>
 <td class="evalue"></td>
 </tr></tbody>
@@ -3265,7 +3250,7 @@ letter-probability matrix: alength= 4 w= 8 nsites= 7 E= 1.6e-002
 </div>
 </div></div>
 <a name="top"></a><div class="pad1">
-<h1><img src="http://biostar.psu.edu/meme/doc/images/dreme_logo.png" alt="Discriminative Regular Expression Motif Elicitation (DREME)"></h1>
+<h1><img src="http://Phils-iMac.local/meme/doc/images/dreme_logo.png" alt="Discriminative Regular Expression Motif Elicitation (DREME)"></h1>
 <p class="spaced">
         For further information on how to interpret these results or to get a 
         copy of the MEME software please access 
@@ -3312,30 +3297,17 @@ letter-probability matrix: alength= 4 w= 8 nsites= 7 E= 1.6e-002
 <th>Download <div class="help2" onclick="help(this,'pop_download')">?</div>
 </th>
 </tr></thead>
-<tbody>
-<tr class="motif_row" id="motif_row_1">
+<tbody><tr class="motif_row" id="motif_row_1">
 <td>1.</td>
-<td>GAWGAWGA</td>
-<td><img src="m01nc_GAWGAWGA.png" id="small_logo_1" width="120" height="50" onerror="add_draw_task(this,                      new FixLogoTask(1, false))"></td>
-<td><img src="m01rc_TCWTCWTC.png" id="small_rc_logo_1" width="120" height="50" onerror="add_draw_task(this,                      new FixLogoTask(1, true)); true"></td>
-<td>1.6e-004</td>
-<td>1.6e-004</td>
+<td>CWTCWTC</td>
+<td><img src="m01nc_CWTCWTC.png" id="small_logo_1" width="105" height="50" onerror="add_draw_task(this,                      new FixLogoTask(1, false))"></td>
+<td><img src="m01rc_GAWGAWG.png" id="small_rc_logo_1" width="105" height="50" onerror="add_draw_task(this,                      new FixLogoTask(1, true)); true"></td>
+<td>4.0e-004</td>
+<td>4.0e-004</td>
 <td class="symaction"><a href="javascript:expand(1)">↧</a></td>
 <td class="symaction"><a href="javascript:send_to_popup(1)">⇢</a></td>
 <td class="symaction"><a href="javascript:download_popup(1)">⟱</a></td>
-</tr>
-<tr class="motif_row" id="motif_row_2">
-<td>2.</td>
-<td>AGKTGAAG</td>
-<td><img src="m02nc_AGKTGAAG.png" id="small_logo_2" width="120" height="50" onerror="add_draw_task(this,                      new FixLogoTask(2, false))"></td>
-<td><img src="m02rc_CTTCAMCT.png" id="small_rc_logo_2" width="120" height="50" onerror="add_draw_task(this,                      new FixLogoTask(2, true)); true"></td>
-<td>1.6e-002</td>
-<td>1.3e-001</td>
-<td class="symaction"><a href="javascript:expand(2)">↧</a></td>
-<td class="symaction"><a href="javascript:send_to_popup(2)">⇢</a></td>
-<td class="symaction"><a href="javascript:download_popup(2)">⟱</a></td>
-</tr>
-</tbody>
+</tr></tbody>
 <tfoot><tr class="rule">
 <td> </td>
 <td> </td>
@@ -3370,21 +3342,21 @@ letter-probability matrix: alength= 4 w= 8 nsites= 7 E= 1.6e-002
 </div>
 <div class="subsection">
 <a name="command"></a><h5>Command line summary</h5>
-<textarea rows="1" style="width:100%;" readonly>dreme -p /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt -n /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/BackgroundSequencesRicherUp.txt -oc /gpfs/biostar/l/Llinaslab/phil/projects/motif/results/dreme</textarea><br>Result calculation took 10.16 seconds<br>
+<textarea rows="1" style="width:100%;" readonly>dreme -p /Users/philross/projects/pfsr1-motif/data/probes/PositiveSequences.txt -n /Users/philross/projects/pfsr1-motif/data/probes/bgseqs.fasta -oc /Users/philross/projects/pfsr1-motif/results/dreme -mink 7 -maxk 8</textarea><br>Result calculation took 0.84 seconds<br>
 </div>
 <a href="javascript:show_hidden('model')" id="model_activator">show model parameters...</a><div class="subsection" id="model_data" style="display:none;">
 <h5>Model parameters</h5>
 <textarea style="width:100%;" rows="10" readonly>
-positives             = name: "PositiveSequences", count: "58", file: "/gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt", last_mod_date: "Mon Feb 24 12:03:22 EST 2014"
-negatives             = name: "BackgroundSequencesRicherUp", count: "557", from: "file", file: "/gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/BackgroundSequencesRicherUp.txt", last_mod_date: "Wed Feb 05 16:46:41 EST 2014"
-background            = type: "dna", A: "0.448", C: "0.105", G: "0.150", T: "0.298", from: "dataset"
+positives             = name: "PositiveSequences", count: "58", file: "/Users/philross/projects/pfsr1-motif/data/probes/PositiveSequences.txt", last_mod_date: "Fri May 16 15:22:59 EDT 2014"
+negatives             = name: "bgseqs", count: "100", from: "file", file: "/Users/philross/projects/pfsr1-motif/data/probes/bgseqs.fasta", last_mod_date: "Tue Jun 24 17:35:39 EDT 2014"
+background            = type: "dna", A: "0.396", C: "0.097", G: "0.098", T: "0.409", from: "dataset"
 stop                  = evalue: "0.05"
 norc                  = FALSE
 ngen                  = 100
 add_pv_thresh         = 0.01
 seed                  = 1
-host                  = biostar.psu.edu
-when                  = Fri Jun 13 00:08:53 EDT 2014
+host                  = Phils-iMac.local
+when                  = Tue Jun 24 17:36:30 EDT 2014
 </textarea>
 </div>
 <a href="javascript:hide_shown('model')" style="display:none;" id="model_deactivator">hide model parameters...</a>

@@ -67,45 +67,32 @@
 ]>
 <dreme version="4.9.0" release="Wed Oct  3 11:07:26 EST 2012">
   <model>
-    <command_line>dreme -p /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt -n /gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/BackgroundSequencesRicherUp.txt -oc /gpfs/biostar/l/Llinaslab/phil/projects/motif/results/dreme</command_line>
-    <positives name="PositiveSequences" count="58" file="/gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/PositiveSequences.txt" last_mod_date="Mon Feb 24 12:03:22 EST 2014" />
-    <negatives name="BackgroundSequencesRicherUp" count="557" from="file" file="/gpfs/biostar/l/Llinaslab/phil/projects/motif/data/probes/BackgroundSequencesRicherUp.txt" last_mod_date="Wed Feb 05 16:46:41 EST 2014" />
-    <background type="dna" A="0.448" C="0.105" G="0.150" T="0.298" from="dataset"/>
+    <command_line>dreme -p /Users/philross/projects/pfsr1-motif/data/probes/PositiveSequences.txt -n /Users/philross/projects/pfsr1-motif/data/probes/bgseqs.fasta -oc /Users/philross/projects/pfsr1-motif/results/dreme -mink 7 -maxk 8</command_line>
+    <positives name="PositiveSequences" count="58" file="/Users/philross/projects/pfsr1-motif/data/probes/PositiveSequences.txt" last_mod_date="Fri May 16 15:22:59 EDT 2014" />
+    <negatives name="bgseqs" count="100" from="file" file="/Users/philross/projects/pfsr1-motif/data/probes/bgseqs.fasta" last_mod_date="Tue Jun 24 17:35:39 EDT 2014" />
+    <background type="dna" A="0.396" C="0.097" G="0.098" T="0.409" from="dataset"/>
     <stop evalue="0.05"/>
     <norc>FALSE</norc>
     <ngen>100</ngen>
     <add_pv_thresh>0.01</add_pv_thresh>
     <seed>1</seed>
-    <host>biostar.psu.edu</host>
-    <when>Fri Jun 13 00:08:53 EDT 2014</when>
+    <host>Phils-iMac.local</host>
+    <when>Tue Jun 24 17:36:30 EDT 2014</when>
   </model>
   <motifs>
-    <motif id="m01" seq="GAWGAWGA" length="8" nsites="40" p="28" n="81" pvalue="1.4e-008" evalue="1.6e-004" unerased_evalue="1.6e-004">
-      <pos i="1" A="0.000000" C="0.000000" G="1.000000" T="0.000000"/>
-      <pos i="2" A="1.000000" C="0.000000" G="0.000000" T="0.000000"/>
-      <pos i="3" A="0.575000" C="0.000000" G="0.000000" T="0.425000"/>
-      <pos i="4" A="0.000000" C="0.000000" G="1.000000" T="0.000000"/>
-      <pos i="5" A="1.000000" C="0.000000" G="0.000000" T="0.000000"/>
-      <pos i="6" A="0.425000" C="0.000000" G="0.000000" T="0.575000"/>
-      <pos i="7" A="0.000000" C="0.000000" G="1.000000" T="0.000000"/>
-      <pos i="8" A="1.000000" C="0.000000" G="0.000000" T="0.000000"/>
-      <match seq="GAAGATGA" p="12" n="20" pvalue="8.4e-006" evalue="9.6e-002"/>
-      <match seq="GATGATGA" p="12" n="24" pvalue="3.5e-005" evalue="4.0e-001"/>
-      <match seq="GAAGAAGA" p="11" n="31" pvalue="8.7e-004" evalue="1.0e+001"/>
-      <match seq="GATGAAGA" p="8" n="20" pvalue="2.7e-003" evalue="3.1e+001"/>
-    </motif>
-    <motif id="m02" seq="AGKTGAAG" length="8" nsites="7" p="7" n="2" pvalue="1.5e-006" evalue="1.6e-002" unerased_evalue="1.3e-001">
-      <pos i="1" A="1.000000" C="0.000000" G="0.000000" T="0.000000"/>
-      <pos i="2" A="0.000000" C="0.000000" G="1.000000" T="0.000000"/>
-      <pos i="3" A="0.000000" C="0.000000" G="0.428571" T="0.571429"/>
-      <pos i="4" A="0.000000" C="0.000000" G="0.000000" T="1.000000"/>
-      <pos i="5" A="0.000000" C="0.000000" G="1.000000" T="0.000000"/>
-      <pos i="6" A="1.000000" C="0.000000" G="0.000000" T="0.000000"/>
-      <pos i="7" A="1.000000" C="0.000000" G="0.000000" T="0.000000"/>
-      <pos i="8" A="0.000000" C="0.000000" G="1.000000" T="0.000000"/>
-      <match seq="AGTTGAAG" p="4" n="0" pvalue="7.2e-005" evalue="8.1e-001"/>
-      <match seq="AGGTGAAG" p="3" n="2" pvalue="7.0e-003" evalue="7.8e+001"/>
+    <motif id="m01" seq="CWTCWTC" length="7" nsites="53" p="34" n="16" pvalue="4.3e-008" evalue="4.0e-004" unerased_evalue="4.0e-004">
+      <pos i="1" A="0.000000" C="1.000000" G="0.000000" T="0.000000"/>
+      <pos i="2" A="0.509434" C="0.000000" G="0.000000" T="0.490566"/>
+      <pos i="3" A="0.000000" C="0.000000" G="0.000000" T="1.000000"/>
+      <pos i="4" A="0.000000" C="1.000000" G="0.000000" T="0.000000"/>
+      <pos i="5" A="0.452830" C="0.000000" G="0.000000" T="0.547170"/>
+      <pos i="6" A="0.000000" C="0.000000" G="0.000000" T="1.000000"/>
+      <pos i="7" A="0.000000" C="1.000000" G="0.000000" T="0.000000"/>
+      <match seq="CTTCATC" p="14" n="4" pvalue="2.1e-004" evalue="1.9e+000"/>
+      <match seq="CATCATC" p="12" n="4" pvalue="1.2e-003" evalue="1.1e+001"/>
+      <match seq="CATCTTC" p="13" n="5" pvalue="1.3e-003" evalue="1.2e+001"/>
+      <match seq="CTTCTTC" p="14" n="6" pvalue="1.3e-003" evalue="1.2e+001"/>
     </motif>
   </motifs>
-  <run_time cpu="10.13" real="10.16" stop="evalue"/>
+  <run_time cpu="0.84" real="0.84" stop="evalue"/>
 </dreme>

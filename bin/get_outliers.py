@@ -11,10 +11,11 @@ def main():
 	parser.add_argument("-s", dest = "std_val", help = "Number of Standard Deviations")
 	args = parser.parse_args()
 
-	data = read_table(args.norm_file, index_col='ID')
-	outliers = data[data.Normalized > data.Normalized.std() * int(args.std_val)]
+	data = read_table(args.norm_file, sep='\t')
+	norm_hits = data.columns[2]
+	outliers = data[data[norm_hits] > data[norm_hits].std() * int(args.std_val)]
 
-	outliers.to_csv(sys.stdout)
+	outliers.to_csv(sys.stdout, sep='\t', index=False)
 
 if __name__ == "__main__":
 	main() 

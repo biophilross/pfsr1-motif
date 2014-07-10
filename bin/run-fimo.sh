@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # halt in case of errors
-set -ue
+set -u
+set -e
 
 <<DESCRIPTION
 	A FIMO wrapper script
@@ -10,14 +11,17 @@ set -ue
 	Author: http://methodicallyadventurous.com
 DESCRIPTION
 
-# load meme module
-module load meme
-
 # FUNCTIONS ###################################################################
 usage() {
 cat << EOF
 
-Usage: searchmotif -m <motif-file> -s <sequence-file> -t <threshold> -o <output-dir>
+Usage: $(basename $0) -m <motif-file> -s <sequence-file> -t <threshold> -o <output-dir>
+
+OPTIONS:
+  -m           meme formatted motif file
+  -s           fasta seqence file to search through
+  -t           fimo threshold (1e-4)
+  -o           name of output directory
 
 WARNING: Will always overwrite output directory
 
